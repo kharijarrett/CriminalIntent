@@ -12,34 +12,26 @@ import java.util.UUID;
 public class CrimeLab {
 
     private static CrimeLab sCrimeLab;
-
     private List<Crime> mCrimes;
 
 
 
-    private CrimeLab(Context context){
+    private CrimeLab(Context context){ //CONSTRUCTOR
         mCrimes = new ArrayList<>();
         for(int i = 0; i < 100; i++){
             Crime crime = new Crime();
             crime.setTitle("Crime #" + i);
-            crime.setSolved((i % 2) == 0);
+            crime.setSolved((i % 2) == 0); //Every other one is solved
             mCrimes.add(crime);
 
         }
-
     }
+
 
     public List<Crime> getCrimes() {
         return mCrimes;
     }
 
-    public static CrimeLab get(Context context) {
-
-        if(sCrimeLab ==null){
-            sCrimeLab = new CrimeLab(context);
-        }
-        return sCrimeLab;
-    }
 
     public Crime getCrime(UUID id){
         for (Crime crime: mCrimes){
@@ -49,6 +41,16 @@ public class CrimeLab {
         }
         return null;
     }
+
+
+    public static CrimeLab get(Context context) {
+
+        if(sCrimeLab ==null){
+            sCrimeLab = new CrimeLab(context);
+        }
+        return sCrimeLab;
+    }
+
 
 
 }
