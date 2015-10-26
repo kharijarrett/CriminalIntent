@@ -45,7 +45,9 @@ public class Crime {
         mSolved = solved;
     }
 
-    static String formatDate(Date date) {
+    public static String formatDate(Date date) {
         return DateFormat.getDateInstance().format(date);
     }
+
+    public static String formatTime(Date date) {return DateFormat.getTimeInstance().format(date);}
 }
