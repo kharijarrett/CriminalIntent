@@ -10,9 +10,14 @@ public class Crime {
     private Date mDate;
     private boolean mSolved;
 
-    public Crime() {
-        // Generate unique identifier
-        mId = UUID.randomUUID();
+    //Constructor
+    public Crime(){
+        this(UUID.randomUUID());
+    }
+
+    //Other constructor
+    public Crime(UUID id) {
+        mId = id;
         mDate = new Date();
 
     }

@@ -98,6 +98,8 @@ public class CrimeListFragment extends Fragment {
         outState.putBoolean(SAVED_SUBTITLE_VISIBLE,mSubtitleVisible);
     }
 
+
+
     private void updateUI() {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
@@ -107,6 +109,7 @@ public class CrimeListFragment extends Fragment {
             mCrimeRecyclerView.setAdapter(mAdapter);
         }
         else{
+            mAdapter.setCrimes(crimes);
             mAdapter.notifyItemChanged(mCrimePosition);
         }
         updateSubtitle();
@@ -167,6 +170,10 @@ public class CrimeListFragment extends Fragment {
         private List<Crime> mCrimes;
 
         public CrimeAdapter(List<Crime> crimes){
+            mCrimes = crimes;
+        }
+
+        public void setCrimes(List<Crime> crimes){
             mCrimes = crimes;
         }
 
